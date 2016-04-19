@@ -4,4 +4,23 @@
 
 <book-index></book-index>
 
+<button (click)="hidden = !hidden">
+  Toggle Hide
+</button>
+<p [hidden]="hidden"
+   style="background-color: green;">
+  Hide Me
+</p>
+
+<div style="height: 200px; width: 200px; border: 2px solid black;"
+     (mousemove)="x = $event.offsetX; y = $event.offsetY">
+</div>
+X: {{x}}, Y: {{y}}
+
+<!-- Function -->
+<div style="height: 200px; width: 200px; border: 2px solid black;"
+     (mousemove)="handleMouseMove($event)">
+</div>
+X: {{x}}, Y: {{y}}
+
 <router-outlet></router-outlet>

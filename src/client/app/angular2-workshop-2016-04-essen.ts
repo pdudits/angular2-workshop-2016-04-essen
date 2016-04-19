@@ -15,9 +15,16 @@ import {BookIndex} from './book-index/book-index';
 ].concat(CliRouteConfig))
 
 export class Angular2Workshop201604EssenApp {
+  x = 0;
+  y: number;
   defaultMeaning: number = 42;
 
   meaningOfLife(meaning?: number) {
     return `The meaning of life is ${meaning || this.defaultMeaning}`;
+  }
+
+  handleMouseMove(event: MouseEvent) {
+    this.x = event.clientX;
+    this.y = event.clientY;
   }
 }
