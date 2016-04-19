@@ -1,4 +1,10 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  OnInit
+} from 'angular2/core';
 import {BookData, Book} from '../book-data/book-data';
 
 import {Observable} from 'rxjs/Observable';
@@ -14,21 +20,28 @@ import 'rxjs/add/observable/zip';
   directives: [],
   pipes: []
 })
-export class BookIndex {
+export class BookIndex implements OnInit {
   @Input('myInputValue') input: string;
   @Input('title') title: string;
   @Output() titleClicked = new EventEmitter<string>();
 
   books: Book[];
 
-  constructor(private data: BookData) {
-    data.getBooks()
-      .subscribe(books => this.books = books);
-
+  constructor(
+    private data: BookData
+  ) {
     const timer$ = Observable.interval(1000);
     const chars$ = Observable.fromArray(['A', 'B', 'C', 'D', 'E', 'F']);
 
     Observable.zip(chars$, timer$)
       .subscribe(([char]) => console.log(char));
+  }
+
+  ngOnInit() {
+    this.data.getBooks()
+      .subscribe(
+        books => this.books = books,
+        error => console.error(error)
+      );
   }
 }
