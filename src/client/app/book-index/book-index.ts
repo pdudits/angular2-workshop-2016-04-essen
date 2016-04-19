@@ -2,6 +2,7 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 interface Book {
   title: string;
+  isbn: string;
 }
 
 @Component({
