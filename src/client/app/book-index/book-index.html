@@ -7,3 +7,14 @@
 <p>
   Input-Value: {{input}}
 </p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>ISBN</th>
+  </tr>
+  <tr *ngFor="#book of books">
+    <td>{{book.title}}</td>
+    <td>{{book.isbn}}</td>
+  </tr>
+</table>

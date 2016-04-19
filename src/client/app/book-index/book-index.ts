@@ -13,6 +13,13 @@ export class BookIndex {
   @Input('myInputValue') input: string;
   @Input('title') title: string;
   @Output() titleClicked = new EventEmitter<string>();
+
+  books = [
+    {title: 'JavaScript für Enterprise-Entwickler', isbn: '978-3-89864-728-1'},
+    {title: 'Node.js & Co.', isbn: '978-3-89864-829-5'},
+    {title: 'Testgetriebene Entwicklung mit JavaScript', isbn: '978-3-86490-207-9'}
+  ];
+
   constructor() {}
 
 }
