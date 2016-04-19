@@ -1,4 +1,4 @@
-import {Component} from 'angular2/core';
+import {Component, Input} from 'angular2/core';
 
 
 @Component({
@@ -10,7 +10,7 @@ import {Component} from 'angular2/core';
   pipes: []
 })
 export class BookIndex {
-
+  @Input('myInputValue') input: string;
   constructor() {}
 
 }
