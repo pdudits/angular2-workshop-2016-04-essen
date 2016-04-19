@@ -2,6 +2,11 @@ import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 import {BookData, Book} from '../book-data/book-data';
 
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/interval';
+import 'rxjs/add/observable/fromArray';
+import 'rxjs/add/observable/zip';
+
 @Component({
   selector: 'book-index',
   templateUrl: 'app//book-index/book-index.html',
@@ -19,6 +24,11 @@ export class BookIndex {
 
   constructor(private data: BookData) {
     this.books = data.getBooks();
-  }
 
+    const timer$ = Observable.interval(1000);
+    const chars$ = Observable.fromArray(['A', 'B', 'C', 'D', 'E', 'F']);
+
+    Observable.zip(chars$, timer$)
+      .subscribe(([char]) => console.log(char));
+  }
 }
