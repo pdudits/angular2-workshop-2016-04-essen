@@ -1,15 +1,12 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
-interface Book {
-  title: string;
-  isbn: string;
-}
+import {BookData, Book} from '../book-data/book-data';
 
 @Component({
   selector: 'book-index',
   templateUrl: 'app//book-index/book-index.html',
   styleUrls: ['app//book-index/book-index.css'],
-  providers: [],
+  providers: [BookData],
   directives: [],
   pipes: []
 })
@@ -18,12 +15,10 @@ export class BookIndex {
   @Input('title') title: string;
   @Output() titleClicked = new EventEmitter<string>();
 
-  books: Book[] = [
-    { title: 'JavaScript für Enterprise-Entwickler', isbn: '978-3-89864-728-1' },
-    { title: 'Node.js & Co.', isbn: '978-3-89864-829-5' },
-    { title: 'Testgetriebene Entwicklung mit JavaScript', isbn: '978-3-86490-207-9' }
-  ];
+  books: Book[];
 
-  constructor() { }
+  constructor(private data: BookData) {
+    this.books = data.getBooks();
+  }
 
 }
