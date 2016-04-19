@@ -2,7 +2,9 @@
   angular2-workshop-2016-04-essen Works!
 </p>
 
-<book-index title="Hello World!" [myInputValue]="x"></book-index>
+<book-index title="Hello World!"
+            [myInputValue]="x"
+            (titleClicked)="handleTitleClicked($event)"></book-index>
 
 <button (click)="hidden = !hidden">
   Toggle Hide

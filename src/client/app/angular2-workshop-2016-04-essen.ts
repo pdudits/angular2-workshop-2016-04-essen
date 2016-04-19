@@ -27,4 +27,8 @@ export class Angular2Workshop201604EssenApp {
     this.x = event.clientX;
     this.y = event.clientY;
   }
+
+  handleTitleClicked(text: string) {
+    console.log(`The titleClicked-event is fired and says ${text}.`);
+  }
 }

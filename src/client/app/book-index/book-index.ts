@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 
 
 @Component({
@@ -12,6 +12,7 @@ import {Component, Input} from 'angular2/core';
 export class BookIndex {
   @Input('myInputValue') input: string;
   @Input('title') title: string;
+  @Output() titleClicked = new EventEmitter<string>();
   constructor() {}
 
 }
