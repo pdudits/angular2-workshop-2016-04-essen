@@ -1,5 +1,4 @@
 import {Component, Input, Output, EventEmitter} from 'angular2/core';
-
 import {BookData, Book} from '../book-data/book-data';
 
 import {Observable} from 'rxjs/Observable';
@@ -23,7 +22,8 @@ export class BookIndex {
   books: Book[];
 
   constructor(private data: BookData) {
-    this.books = data.getBooks();
+    data.getBooks()
+      .subscribe(books => this.books = books);
 
     const timer$ = Observable.interval(1000);
     const chars$ = Observable.fromArray(['A', 'B', 'C', 'D', 'E', 'F']);

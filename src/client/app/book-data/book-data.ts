@@ -1,5 +1,9 @@
 import {Injectable} from 'angular2/core';
 
+import {Http} from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
 export interface Book {
   title: string;
   isbn: string;
@@ -8,14 +12,11 @@ export interface Book {
 @Injectable()
 export class BookData {
 
-  constructor() { }
+  constructor(private http: Http) { }
 
-  getBooks(): Book[] {
-    return [
-      { title: 'JavaScript für Enterprise-Entwickler', isbn: '978-3-89864-728-1' },
-      { title: 'Node.js & Co.', isbn: '978-3-89864-829-5' },
-      { title: 'Testgetriebene Entwicklung mit JavaScript', isbn: '978-3-86490-207-9' }
-    ];
+  getBooks(): Observable<Book[]> {
+    return this.http.get('http://localhost:4730/books')
+      .map(response => response.json());
   }
 
 }
