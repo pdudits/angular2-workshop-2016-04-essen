@@ -5,6 +5,9 @@ import {
   EventEmitter,
   OnInit
 } from 'angular2/core';
+
+import {ROUTER_DIRECTIVES} from 'angular2/router';
+
 import {BookData, Book} from '../book-data/book-data';
 
 import {Observable} from 'rxjs/Observable';
@@ -19,7 +22,7 @@ import {ShoutPipe} from '../shout-pipe/shout-pipe';
   templateUrl: 'app//book-index/book-index.html',
   styleUrls: ['app//book-index/book-index.css'],
   providers: [BookData],
-  directives: [],
+  directives: [ROUTER_DIRECTIVES],
   pipes: [ShoutPipe]
 })
 export class BookIndex implements OnInit {

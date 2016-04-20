@@ -9,6 +9,7 @@ import {
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {CliRouteConfig} from './route-config';
 import {BookIndex} from './book-index/book-index';
+import {BookShow} from './book-show/book-show';
 @Component({
   selector: 'angular2-workshop-2016-04-essen-app',
   providers: [
@@ -22,7 +23,8 @@ import {BookIndex} from './book-index/book-index';
   pipes: []
 })
 @RouteConfig([
-  {path: '/books', component: BookIndex, useAsDefault: true}
+  {path: '/books', component: BookIndex, as: 'BookIndex', useAsDefault: true},
+  {path: '/books/:isbn', component: BookShow, as: 'BookShow'}
 ].concat(CliRouteConfig))
 
 export class Angular2Workshop201604EssenApp {

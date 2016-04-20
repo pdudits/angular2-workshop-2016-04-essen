@@ -17,7 +17,11 @@
   </tr>
   <tr *ngFor="#book of books">
     <td>{{book.title | uppercase}}</td>
-    <td>{{book.isbn}}</td>
+    <td>
+      <a [routerLink]="['/BookShow', {isbn: book.isbn}]">
+        {{book.isbn}}
+      </a>
+    </td>
   </tr>
 </table>
 
