@@ -1,0 +1,25 @@
+<form #form="ngForm" (ngSubmit)="handleSubmit()">
+  <div>
+    <label>Title</label>
+    <input type="text"
+      [(ngModel)]="book.title"
+      ngControl="title"
+      #title="ngForm"
+      required
+      minlength="5">
+    <p [hidden]="!title.errors?.required || title.pristine">
+      The Title field is required.
+    </p>
+    <p [hidden]="!title.errors?.minlength || title.pristine">
+      Type at least {{title.errors?.minlength?.requiredLength}} chars. You have entered {{title.errors?.minlength?.actualLength}} chars.
+    </p>
+  </div>
+  <div>
+    <label>Author</label>
+    <input type="text"
+      [(ngModel)]="book.author"
+      ngControl="author"
+      #author="ngForm">
+  </div>
+  <button>Send!</button>
+</form>

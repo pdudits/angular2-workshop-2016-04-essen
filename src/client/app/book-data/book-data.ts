@@ -4,9 +4,10 @@ import {Http} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-export interface Book {
-  title: string;
-  isbn: string;
+export class Book {
+  title: string = '';
+  isbn: string = '';
+  author: string = '';
 }
 
 @Injectable()
