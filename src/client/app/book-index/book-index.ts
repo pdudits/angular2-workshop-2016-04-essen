@@ -12,13 +12,15 @@ import 'rxjs/add/observable/interval';
 import 'rxjs/add/observable/fromArray';
 import 'rxjs/add/observable/zip';
 
+import {ShoutPipe} from '../shout-pipe/shout-pipe';
+
 @Component({
   selector: 'book-index',
   templateUrl: 'app//book-index/book-index.html',
   styleUrls: ['app//book-index/book-index.css'],
   providers: [BookData],
   directives: [],
-  pipes: []
+  pipes: [ShoutPipe]
 })
 export class BookIndex implements OnInit {
   @Input('myInputValue') input: string;

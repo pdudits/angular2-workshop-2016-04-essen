@@ -8,13 +8,17 @@
   Input-Value: {{input}}
 </p>
 
+<string>{{'Gestrüpp' | shoutPipe:'Echt!'}}</string>
+
 <table>
   <tr>
     <th>Title</th>
     <th>ISBN</th>
   </tr>
   <tr *ngFor="#book of books">
-    <td>{{book.title}}</td>
+    <td>{{book.title | uppercase}}</td>
     <td>{{book.isbn}}</td>
   </tr>
 </table>
+
+<pre><code>{{books | json}}</code></pre>
